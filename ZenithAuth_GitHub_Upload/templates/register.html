@@ -1,0 +1,69 @@
+<!-- c:\Users\USER\Downloads\ZSAUTH\templates\register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — Zenith Auth</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-grid-cyber min-h-screen flex items-center justify-center p-6 text-slate-100 relative">
+  <div class="w-full max-w-md card-vault p-8 rounded-2xl glass-panel relative z-10 border border-white/10 shadow-2xl">
+    <div class="text-center space-y-3 mb-8">
+      <a href="/" class="inline-flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 flex items-center justify-center">
+          <i data-lucide="folder" class="w-5 h-5"></i>
+        </div>
+        <span class="text-2xl font-black tracking-tight text-white">Zenith Auth</span>
+      </a>
+      <h2 class="text-xl font-black text-white">Register Developer Account</h2>
+      <p class="text-xs text-slate-400">All new registrations automatically start on the <span class="text-cyan-400 font-bold">Tester Free Tier</span>.</p>
+    </div>
+
+    {% if error %}
+    <div class="mb-5 p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-center gap-2">
+      <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
+      <span>{{ error }}</span>
+    </div>
+    {% endif %}
+
+    <form action="/register" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Username</label>
+        <input type="text" name="username" required placeholder="Choose a username"
+               class="w-full bg-[#080a10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-500 transition">
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Email Address</label>
+        <input type="email" name="email" required placeholder="developer@domain.com"
+               class="w-full bg-[#080a10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-500 transition">
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Password</label>
+        <input type="password" name="password" required placeholder="Choose a secure password"
+               class="w-full bg-[#080a10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-500 transition">
+      </div>
+
+      <div class="p-3 rounded-xl bg-white/5 border border-white/5 text-[11px] text-slate-400 flex items-center gap-2">
+        <i data-lucide="info" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+        <span>Tester tier includes 2 Apps, 15 Licenses, and 15 Users. Seller API unlocks on Seller Plan.</span>
+      </div>
+
+      <button type="submit" class="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black text-xs transition shadow-lg shadow-cyan-500/25 mt-2">
+        Create Tester Account &rarr;
+      </button>
+    </form>
+
+    <div class="mt-6 pt-6 border-t border-white/5 text-center text-xs text-slate-400">
+      Already have an account? 
+      <a href="/login" class="text-cyan-400 hover:text-cyan-300 font-bold ml-1">Log in here</a>
+    </div>
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

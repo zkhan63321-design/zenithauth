@@ -1,0 +1,468 @@
+<!-- c:\Users\USER\Downloads\ZSAUTH\templates\index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zenith Auth — Next-Gen Cloud Licensing & Security Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-grid-cyber min-h-screen text-slate-100 selection:bg-cyan-500 selection:text-black">
+  <div id="toast-notification"></div>
+
+  <!-- TOP NAVBAR -->
+  <nav class="glass-nav sticky top-0 z-50 px-6 py-4 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 flex items-center justify-center">
+          <i data-lucide="folder" class="w-4 h-4"></i>
+        </div>
+        <span class="text-xl font-black tracking-tight text-white">Zenith Auth</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 text-xs font-bold text-slate-400 uppercase tracking-wider">
+        <a href="#hero" class="text-white hover:text-cyan-400 transition">Home</a>
+        <a href="#features" class="hover:text-cyan-400 transition">Features</a>
+        <a href="#pricing" class="hover:text-cyan-400 transition">Pricing</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        {% if user %}
+          <a href="/dashboard" class="btn-pill-green">
+            <span>Dashboard</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="/logout" class="text-xs text-slate-400 hover:text-white">Log out</a>
+        {% else %}
+          <a href="/login" class="btn-pill-green">
+            <span>Login &rarr;</span>
+          </a>
+          <a href="/register" class="text-xs font-bold text-slate-300 hover:text-white transition">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative pt-24 pb-20 px-6 text-center z-10">
+    <div class="max-w-4xl mx-auto space-y-6">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        Enterprise Cloud Licensing, HWID Shield & Automated Seller Bots
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white leading-tight">
+        Simplify Your <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-teal-200 to-white">Authentication</span>
+      </h1>
+
+      <p class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto font-normal leading-relaxed">
+        Secure your applications with cloud-native subscriptions, flexible access controls, automated Discord bots, and a beautiful developer-friendly API.
+      </p>
+
+      <div class="pt-4 flex items-center justify-center gap-4">
+        <a href="/register" class="px-7 py-3 rounded-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-sm transition shadow-lg shadow-cyan-400/25">Get Started Free</a>
+        <a href="/login" class="btn-pill-dark">Developer Login</a>
+      </div>
+    </div>
+
+    <!-- Live Preview Mockup (Matches AuthVaultix & KeyAuth standard) -->
+    <div class="max-w-5xl mx-auto mt-14 rounded-2xl glass-panel p-2 shadow-2xl border border-white/10 text-left">
+      <div class="bg-[#0b0d14] px-4 py-3 rounded-t-xl border-b border-white/5 flex items-center justify-between">
+        <div class="flex items-center gap-2 text-xs">
+          <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+          <span class="font-bold text-white ml-2">Zenith Auth Sentinel</span>
+          <span class="text-slate-500">/</span>
+          <span class="text-cyan-400 font-mono font-bold">Cloud Telemetry Hub</span>
+        </div>
+        <div class="text-[11px] text-emerald-400 font-mono font-bold flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> 100% Operational
+        </div>
+      </div>
+      
+      <div class="bg-[#06070b] p-6 space-y-6 rounded-b-xl">
+        <!-- Mock Welcome Bar -->
+        <div class="p-4 rounded-xl bg-gradient-to-r from-cyan-950/40 via-[#0d1220] to-[#080a12] border border-cyan-500/20 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 flex items-center justify-center font-black">
+              <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-white font-black text-sm flex items-center gap-2">
+                <span>Welcome to Zenith Sentinel</span>
+                <span class="px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 text-[10px] font-bold border border-amber-500/30">SELLER PRO</span>
+              </div>
+              <p class="text-xs text-slate-400">Enterprise Hardware-Locked Software Protection & Automated Key Distribution</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-mono">
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-cyan-300">Active Nodes: 12</span>
+            <span class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">Zero Latency</span>
+          </div>
+        </div>
+
+        <!-- 4 Stats Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="p-4 rounded-xl bg-[#0f111a] border border-white/5">
+            <div class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">APPLICATIONS</div>
+            <div class="text-2xl font-black text-cyan-400 mt-1">Unlimited</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Active Projects</div>
+          </div>
+          <div class="p-4 rounded-xl bg-[#0f111a] border border-white/5">
+            <div class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">CURRENT PLAN</div>
+            <div class="text-2xl font-black text-white mt-1">Seller PRO</div>
+            <div class="text-[10px] text-amber-400 mt-0.5">Lifetime Subscription</div>
+          </div>
+          <div class="p-4 rounded-xl bg-[#0f111a] border border-white/5">
+            <div class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">HWID SHIELD</div>
+            <div class="text-2xl font-black text-emerald-400 mt-1">Enforced</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Multi-Device Lock</div>
+          </div>
+          <div class="p-4 rounded-xl bg-[#0f111a] border border-white/5">
+            <div class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">SELLER GATEWAY</div>
+            <div class="text-2xl font-black text-amber-400 mt-1">Automated</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Discord & UPI Live</div>
+          </div>
+        </div>
+
+        <!-- SDK Language Badges (Screenshot 1 / AuthVaultix match) -->
+        <div class="pt-2 border-t border-white/5 flex flex-wrap items-center gap-2 text-[11px] font-mono text-slate-400">
+          <span class="text-slate-500 font-bold uppercase text-[10px] mr-2">Supported SDKs:</span>
+          <span class="px-2.5 py-0.5 rounded bg-white/5 border border-white/10 text-cyan-300">C++</span>
+          <span class="px-2.5 py-0.5 rounded bg-white/5 border border-white/10 text-cyan-300">C# (.NET)</span>
+          <span class="px-2.5 py-0.5 rounded bg-white/5 border border-white/10 text-cyan-300">Python</span>
+          <span class="px-2.5 py-0.5 rounded bg-white/5 border border-white/10 text-cyan-300">Java</span>
+          <span class="px-2.5 py-0.5 rounded bg-white/5 border border-white/10 text-cyan-300">Rust</span>
+          <span class="px-2.5 py-0.5 rounded bg-white/5 border border-white/10 text-cyan-300">Go</span>
+          <span class="px-2.5 py-0.5 rounded bg-white/5 border border-white/10 text-cyan-300">PHP</span>
+          <span class="px-2.5 py-0.5 rounded bg-white/5 border border-white/10 text-cyan-300">JavaScript</span>
+          <span class="px-2.5 py-0.5 rounded bg-white/5 border border-white/10 text-cyan-300">Lua</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION (Matches AuthVaultix Architecture) -->
+  <section id="features" class="py-20 px-6 max-w-6xl mx-auto">
+    <div class="text-center space-y-3 mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase">
+        Next-Gen Protection
+      </div>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Engineered For Reliability</h2>
+      <p class="text-xs text-slate-400 max-w-lg mx-auto">Everything you need to secure, license, and distribute your desktop software.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card-vault p-6 rounded-2xl border-white/10 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
+          <i data-lucide="key" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white">Cloud Licensing & Keys</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Generate single-use or multi-day licenses in custom mask formats. Immediate client binding with instant revocation controls.</p>
+      </div>
+
+      <div class="card-vault p-6 rounded-2xl border-white/10 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+          <i data-lucide="cpu" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white">Hardware ID Shield</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Cryptographic machine fingerprinting locks licenses to the operator's PC. One-click HWID reset with cooldown guards.</p>
+      </div>
+
+      <div class="card-vault p-6 rounded-2xl border-white/10 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center">
+          <i data-lucide="bot" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white">Seller Discord Bot API</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Automated Discord bot slash commands (`/gen`, `/extend`, `/del`, `/reset_hwid`) powered by private encrypted Seller Keys.</p>
+      </div>
+
+      <div class="card-vault p-6 rounded-2xl border-white/10 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
+          <i data-lucide="qr-code" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white">Instant UPI Auto-Activation</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Dynamic QR generation for `zeeshan1710@fam`. Users input their 12-digit UTR to activate Developer or Seller plans automatically.</p>
+      </div>
+
+      <div class="card-vault p-6 rounded-2xl border-white/10 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white">Security Blacklists & Logs</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Block unauthorized IP addresses, blacklisted HWIDs, and ban malicious actors in real-time with comprehensive audit telemetry.</p>
+      </div>
+
+      <div class="card-vault p-6 rounded-2xl border-white/10 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 flex items-center justify-center">
+          <i data-lucide="code" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white">Universal Client SDKs</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Drop-in integration headers for C++, C#, Python, and Lua with session token heartbeat handshakes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING TIERS -->
+  <section id="pricing" class="py-16 px-6 max-w-6xl mx-auto">
+    <div class="text-center space-y-3 mb-10">
+      <h2 class="text-3xl md:text-5xl font-black text-white">Choose Your Plan</h2>
+      <p class="text-xs text-slate-400">Unlock private Seller keys, Discord Bot integration, and unlimited applications.</p>
+
+      <!-- Monthly / Yearly Billing Toggle -->
+      <div class="pt-4 flex items-center justify-center">
+        <div class="cycle-toggle-capsule">
+          <button id="toggle-monthly" onclick="setBillingCycle('monthly')" class="cycle-toggle-btn active">Monthly</button>
+          <button id="toggle-yearly" onclick="setBillingCycle('yearly')" class="cycle-toggle-btn">
+            Yearly <span class="text-[10px] text-emerald-400 font-bold ml-1">(Save Big)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Tester Plan -->
+      <div class="card-vault p-8 rounded-2xl flex flex-col justify-between border-white/10">
+        <div>
+          <span class="px-2.5 py-1 rounded bg-white/10 text-white text-[10px] font-black uppercase">DEFAULT TIER</span>
+          <h3 class="text-2xl font-black text-white mt-3">Tester</h3>
+          <div class="text-4xl font-black text-white mt-4">Free</div>
+          <p class="text-xs text-slate-400 mt-2">Perfect for evaluating and learning the platform.</p>
+          <div class="mt-6 space-y-3 text-xs text-slate-300">
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> 2 Applications</div>
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> 15 Licenses per App</div>
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> 15 Users per App</div>
+            <div class="flex items-center gap-2 text-slate-500 line-through"><i data-lucide="x" class="w-4 h-4 text-slate-600"></i> Private Seller Key</div>
+            <div class="flex items-center gap-2 text-slate-500 line-through"><i data-lucide="x" class="w-4 h-4 text-slate-600"></i> Discord & Telegram Bots</div>
+          </div>
+        </div>
+        <a href="/register" class="mt-8 w-full py-2.5 rounded-xl bg-white/10 text-white font-bold text-xs text-center block hover:bg-white/20">
+          Get Started Free
+        </a>
+      </div>
+
+      <!-- Developer Plan (₹100/mo or ₹500/yr) -->
+      <div class="card-vault p-8 rounded-2xl flex flex-col justify-between border-cyan-500/30">
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-[10px] font-black uppercase">DEVELOPER</span>
+            <span id="badge-dev-discount" class="text-[10px] text-emerald-400 font-bold hidden">58% OFF</span>
+          </div>
+          <h3 class="text-2xl font-black text-white mt-3">Developer</h3>
+          <div class="text-4xl font-black text-white mt-4">
+            <span id="price-developer">₹100</span><span id="cycle-developer" class="text-xs text-slate-400 font-normal">/mo</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-2">Unlimited applications and heavy traffic support.</p>
+          <div class="mt-6 space-y-3 text-xs text-slate-300">
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Unlimited Applications</div>
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Unlimited Licenses</div>
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> 20,000 Users per App</div>
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Full Event Audit Trail</div>
+          </div>
+        </div>
+        <button onclick="openUpiModal('Developer')" class="mt-8 w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs text-center block transition">
+          Choose Developer (<span id="btn-price-developer">₹100</span>)
+        </button>
+      </div>
+
+      <!-- Seller Plan (₹300/mo or ₹1000/yr) -->
+      <div class="card-vault p-8 rounded-2xl flex flex-col justify-between bg-gradient-to-b from-[#111624] to-[#0a0c14] border-cyan-500 shadow-2xl">
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 text-[10px] font-black uppercase">FEATURED SELLER</span>
+            <span id="badge-seller-discount" class="text-[10px] text-amber-300 font-bold hidden">72% OFF</span>
+          </div>
+          <h3 class="text-2xl font-black text-white mt-3">Seller</h3>
+          <div class="text-4xl font-black text-white mt-4">
+            <span id="price-seller">₹300</span><span id="cycle-seller" class="text-xs text-slate-400 font-normal">/mo</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-2">The complete suite with automated bots & private Seller Key.</p>
+          <div class="mt-6 space-y-3 text-xs text-slate-300">
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Private Seller Key & Full API</div>
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Discord Bot Slash Commands</div>
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Telegram Bot Automated Keys</div>
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Unlimited Applications & Keys</div>
+            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Instant Key Delivery & HWID Reset</div>
+          </div>
+        </div>
+        <button onclick="openUpiModal('Seller')" class="mt-8 w-full py-3 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-xs text-center block shadow-lg shadow-cyan-400/30 transition">
+          Activate Seller Plan (<span id="btn-price-seller">₹300</span>)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPI QR CODE PAYMENT MODAL (Automatic QR Generation) -->
+  <div id="modal-upi-payment" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-[#0b0e17] border border-cyan-500/40 rounded-2xl max-w-md w-full p-6 text-left shadow-2xl relative space-y-4">
+      <button onclick="closeModal('modal-upi-payment')" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+
+      <!-- Header -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-cyan-500 text-slate-950 font-black text-xl flex items-center justify-center">₹</div>
+        <div>
+          <h4 class="font-bold text-white text-base">Instant UPI Activation</h4>
+          <p class="text-xs text-slate-400">Automatic QR Generator &bull; Zero Gateway Fee</p>
+        </div>
+      </div>
+
+      <!-- Plan Info Card -->
+      <div class="p-3.5 rounded-xl bg-[#121626] border border-white/10 flex items-center justify-between text-xs">
+        <div>
+          <div class="text-[10px] text-slate-400 uppercase font-bold">Selected Plan</div>
+          <div id="upi-modal-plan-title" class="font-bold text-white text-sm">Seller Plan (Monthly)</div>
+        </div>
+        <div class="text-right">
+          <div class="text-[10px] text-slate-400 uppercase font-bold">Amount Due</div>
+          <div id="upi-modal-amount-display" class="font-black text-cyan-400 text-base">₹300</div>
+        </div>
+      </div>
+
+      <!-- Live Generated QR Code Card -->
+      <div class="upi-qr-card">
+        <div class="text-[11px] font-bold text-cyan-400 mb-2 uppercase tracking-wider">Scan with any UPI App</div>
+        <div class="upi-qr-wrapper">
+          <img id="upi-qr-image" src="" alt="UPI QR Code" class="w-48 h-48 block mx-auto">
+        </div>
+        <div class="flex items-center justify-center gap-3 text-[11px] text-slate-400 mt-3 font-semibold">
+          <span>GPay</span> &bull; <span>PhonePe</span> &bull; <span>Paytm</span> &bull; <span>BHIM</span> &bull; <span>Cred</span>
+        </div>
+      </div>
+
+      <!-- UPI ID Copy Bar -->
+      <div class="p-2.5 rounded-xl bg-[#070910] border border-white/10 flex items-center justify-between text-xs">
+        <div>
+          <div class="text-[9px] uppercase font-bold text-slate-500">Official UPI ID</div>
+          <div class="font-mono font-bold text-cyan-300">zeeshan1710@fam</div>
+        </div>
+        <button onclick="navigator.clipboard.writeText('zeeshan1710@fam'); showToast('Copied UPI ID: zeeshan1710@fam');" class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs flex items-center gap-1 transition">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy UPI
+        </button>
+      </div>
+
+      <!-- UTR Verification Form -->
+      <form id="upi-verify-form" onsubmit="handleUpiVerification(event)" class="space-y-3 pt-1">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Enter 12-digit UPI Ref / UTR Number</label>
+          <input type="text" id="upi-utr-input" required placeholder="e.g. 431089234123" maxlength="20" class="w-full bg-[#070910] border border-white/10 rounded-xl px-4 py-2 font-mono text-xs text-white">
+          <p class="text-[10px] text-slate-500 mt-1">Found in your payment receipt after completing the UPI transaction.</p>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-xs transition shadow-lg shadow-cyan-400/25">
+          Verify Payment & Activate Plan
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-8 text-center text-xs text-slate-500">
+    &copy; 2026 Zenith Auth. Built for high-volume software developers & agencies.
+  </footer>
+
+  <script>
+    let currentBillingCycle = 'monthly';
+    const prices = {
+      Developer: { monthly: 100, yearly: 500 },
+      Seller: { monthly: 300, yearly: 1000 }
+    };
+
+    function setBillingCycle(cycle) {
+      currentBillingCycle = cycle;
+      document.getElementById('toggle-monthly').classList.toggle('active', cycle === 'monthly');
+      document.getElementById('toggle-yearly').classList.toggle('active', cycle === 'yearly');
+
+      if (cycle === 'yearly') {
+        document.getElementById('price-developer').textContent = '₹500';
+        document.getElementById('cycle-developer').textContent = '/year';
+        document.getElementById('btn-price-developer').textContent = '₹500/yr';
+        document.getElementById('badge-dev-discount').classList.remove('hidden');
+
+        document.getElementById('price-seller').textContent = '₹1,000';
+        document.getElementById('cycle-seller').textContent = '/year';
+        document.getElementById('btn-price-seller').textContent = '₹1,000/yr';
+        document.getElementById('badge-seller-discount').classList.remove('hidden');
+      } else {
+        document.getElementById('price-developer').textContent = '₹100';
+        document.getElementById('cycle-developer').textContent = '/mo';
+        document.getElementById('btn-price-developer').textContent = '₹100';
+        document.getElementById('badge-dev-discount').classList.add('hidden');
+
+        document.getElementById('price-seller').textContent = '₹300';
+        document.getElementById('cycle-seller').textContent = '/mo';
+        document.getElementById('btn-price-seller').textContent = '₹300';
+        document.getElementById('badge-seller-discount').classList.add('hidden');
+      }
+    }
+
+    let activeModalPlan = 'Seller';
+    function openUpiModal(planName) {
+      {% if not user %}
+      window.location.href = '/login';
+      return;
+      {% endif %}
+
+      activeModalPlan = planName;
+      const price = prices[planName][currentBillingCycle];
+      document.getElementById('upi-modal-plan-title').textContent = `${planName} Plan (${currentBillingCycle.toUpperCase()})`;
+      document.getElementById('upi-modal-amount-display').textContent = `₹${price}`;
+
+      // Dynamic UPI String & QR Code Generation
+      const upiString = `upi://pay?pa=zeeshan1710@fam&pn=Zenith%20Auth&am=${price}&cu=INR&tn=${planName}_${currentBillingCycle}`;
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(upiString)}&color=050609&bgcolor=ffffff`;
+      document.getElementById('upi-qr-image').src = qrUrl;
+
+      openModal('modal-upi-payment');
+    }
+
+    async function handleUpiVerification(e) {
+      e.preventDefault();
+      const utr = document.getElementById('upi-utr-input').value.trim();
+      const price = prices[activeModalPlan][currentBillingCycle];
+
+      const fd = new FormData();
+      fd.append('plan', activeModalPlan);
+      fd.append('cycle', currentBillingCycle);
+      fd.append('amount', price);
+      fd.append('utr', utr);
+
+      try {
+        const res = await fetch('/api/billing/submit_payment', { method: 'POST', body: fd });
+        const data = await res.json();
+        if (data.success) {
+          showToast(data.message);
+          closeModal('modal-upi-payment');
+          setTimeout(() => { window.location.href = '/dashboard'; }, 1200);
+        } else {
+          alert(data.message || 'Verification error');
+        }
+      } catch (err) {
+        alert('Connection error');
+      }
+    }
+
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    }
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('hidden');
+    }
+    function showToast(msg) {
+      const t = document.getElementById('toast-notification');
+      if (t) {
+        t.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4"></i> <span>${msg}</span>`;
+        lucide.createIcons();
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3500);
+      }
+    }
+  </script>
+  <script src="/static/js/app.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
